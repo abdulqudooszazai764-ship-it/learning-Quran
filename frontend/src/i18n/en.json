@@ -1,0 +1,120 @@
+{
+  "nav": { "home": "Home", "about": "About", "teacher": "Teacher", "courses": "Courses", "admission": "Admission", "contact": "Contact", "login": "Login", "dashboard": "Dashboard", "logout": "Logout", "privacy": "Privacy Policy" },
+  "home": {
+    "hero_title": "Learn the Quran with Love, Anywhere in the World",
+    "hero_subtitle": "Live one-on-one and family group lessons in Quran, Tajweed, Hifz and Islamic Studies, taught over WhatsApp audio classes.",
+    "apply_now": "Apply for Admission",
+    "whatsapp_us": "Message us on WhatsApp",
+    "why_us": "Why Families Choose Us",
+    "why_1_title": "Family-Friendly",
+    "why_1_text": "One account for the whole family. Every child can join lessons using the same phone.",
+    "why_2_title": "Simple WhatsApp Classes",
+    "why_2_text": "No apps to install. Join your class through WhatsApp audio, just like calling a relative.",
+    "why_3_title": "Qualified Teacher",
+    "why_3_text": "Structured Quran, Tajweed and Islamic Studies lessons from an experienced teacher.",
+    "reviews_title": "What Families Say",
+    "faq_title": "Frequently Asked Questions",
+    "courses_title": "Our Courses",
+    "view_all_courses": "View All Courses"
+  },
+  "about": {
+    "title": "About Our Academy",
+    "mission": "Our mission is to make authentic, structured Quran and Islamic education accessible to every family, wherever they live, in a simple and affordable way."
+  },
+  "teacher": {
+    "title": "Meet Your Teacher",
+    "qualifications": "Qualifications",
+    "experience": "Experience",
+    "years": "years"
+  },
+  "courses": {
+    "title": "Our Courses",
+    "nazira": "Quran Nazira", "hifz": "Hifz (Memorization)", "tajweed": "Tajweed",
+    "hadith": "Hadith", "tafsir": "Tafsir", "islamic_studies": "Islamic Studies",
+    "fiqh": "Fiqh", "aqeedah": "Aqeedah",
+    "apply_for_this_course": "Apply for this course"
+  },
+  "admission": {
+    "title": "Admission Form",
+    "subtitle": "Fill this form once for your whole family. No email address is required.",
+    "family_name": "Family Name",
+    "guardian_name": "Guardian / Parent Name",
+    "country": "Country",
+    "contact_number": "Contact Number",
+    "whatsapp_number": "WhatsApp Number",
+    "same_as_contact": "Same as contact number",
+    "number_of_students": "Number of Students",
+    "student_names": "Student Names (separate with commas)",
+    "student_names_hint": "Example: Ahmad, Fatima, Yusuf",
+    "selected_courses": "Courses of Interest",
+    "preferred_time": "Preferred Class Time",
+    "notes": "Additional Notes (optional)",
+    "submit": "Submit Application",
+    "success": "Your application has been received! You can check its status any time on the Admission page using your contact number.",
+    "check_status_title": "Already Applied? Check Your Status",
+    "check_status_button": "Check Status",
+    "status_pending": "Pending Review",
+    "status_accepted": "Accepted",
+    "status_declined": "Declined"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address"
+  },
+  "auth": {
+    "login_title": "Login",
+    "email_or_username": "Email / Username",
+    "password": "Password",
+    "login_button": "Login",
+    "login_help": "Family accounts: use the username and password given to you after your admission was accepted."
+  },
+  "family_dashboard": {
+    "title": "Family Dashboard",
+    "welcome": "Welcome",
+    "students": "Students",
+    "courses": "Courses",
+    "class_schedule": "Class Schedule",
+    "teacher_info": "Teacher Information",
+    "admission_status": "Admission Status",
+    "ask_question": "Ask a Question",
+    "my_questions": "My Questions",
+    "whatsapp_class_link": "Open Class WhatsApp Link",
+    "no_link_yet": "Your teacher has not set a class link yet. Please contact us on WhatsApp."
+  },
+  "admin_dashboard": {
+    "title": "Teacher Dashboard",
+    "overview": "Overview",
+    "total_families": "Total Families",
+    "total_students": "Total Students",
+    "pending_admissions": "Pending Admissions",
+    "upcoming_classes": "Upcoming Classes",
+    "recent_questions": "Recent Questions",
+    "families": "Families",
+    "students": "Students",
+    "admissions": "Admission Requests",
+    "schedule": "Class Schedule",
+    "attendance": "Attendance",
+    "questions": "Questions & Answers",
+    "teacher_profile": "Teacher Profile",
+    "courses_management": "Manage Courses",
+    "accept": "Accept",
+    "decline": "Decline",
+    "message_optional": "Message to applicant (optional)",
+    "set_login": "Set Login for New Family",
+    "username": "Username / Email",
+    "temporary_password": "Temporary Password"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "body": "We respect your family's privacy. Information you share with us -- including contact details, student names, and questions -- is used only to provide Quran and Islamic Studies education and is never shared with any other family or third party. Each family can only see their own information. We do not sell or share your data, and we do not process any payments through this website."
+  },
+  "common": {
+    "loading": "Loading...",
+    "save": "Save", "cancel": "Cancel", "edit": "Edit", "delete": "Delete", "add": "Add",
+    "close": "Close", "back": "Back", "required": "This field is required.",
+    "no_price_notice": "This academy does not charge or collect any fees through this website. Please contact us directly for information about the program."
+  }
+}

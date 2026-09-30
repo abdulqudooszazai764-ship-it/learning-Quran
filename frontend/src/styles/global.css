@@ -1,0 +1,127 @@
+:root {
+  --green-dark: #12543a;
+  --green: #1f7a4d;
+  --green-light: #e7f5ec;
+  --gold: #c99a3b;
+  --text-dark: #1c231f;
+  --text-muted: #5a6660;
+  --bg: #fbfaf7;
+  --card-bg: #ffffff;
+  --radius: 12px;
+  --shadow: 0 2px 10px rgba(0,0,0,0.06);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root { margin: 0; padding: 0; min-height: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--text-dark);
+  line-height: 1.55;
+}
+
+[dir="rtl"] body { font-family: 'Segoe UI', Tahoma, 'Noto Naskh Arabic', sans-serif; }
+
+a { color: var(--green-dark); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+/* Navbar */
+.navbar {
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  position: sticky; top: 0; z-index: 50;
+}
+.navbar-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; max-width: 1080px; margin: 0 auto; flex-wrap: wrap; gap: 10px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.2rem; color: var(--green-dark); }
+.brand-logo { width: 40px; height: 40px; border-radius: 50%; background: var(--green); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+.nav-links { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+.nav-links a, .nav-links button { background: none; border: none; font-size: 0.95rem; cursor: pointer; color: var(--text-dark); }
+.lang-select { padding: 6px 8px; border-radius: 8px; border: 1px solid #ddd; }
+
+/* Buttons */
+.btn { display: inline-block; padding: 11px 22px; border-radius: 30px; border: none; cursor: pointer; font-weight: 600; font-size: 0.95rem; }
+.btn-primary { background: var(--green); color: #fff; }
+.btn-primary:hover { background: var(--green-dark); text-decoration: none; }
+.btn-whatsapp { background: #25D366; color: #fff; }
+.btn-whatsapp:hover { background: #1ebc59; }
+.btn-outline { background: transparent; border: 2px solid var(--green); color: var(--green-dark); }
+.btn-danger { background: #b3423a; color: #fff; }
+.btn-secondary { background: #eee; color: var(--text-dark); }
+.btn-small { padding: 6px 14px; font-size: 0.85rem; border-radius: 20px; }
+
+/* Hero */
+.hero { background: linear-gradient(135deg, var(--green-dark), var(--green)); color: #fff; padding: 70px 20px; text-align: center; }
+.hero h1 { font-size: 2.1rem; max-width: 780px; margin: 0 auto 14px; }
+.hero p { max-width: 640px; margin: 0 auto 26px; opacity: 0.95; }
+.hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* Sections */
+section.section { padding: 50px 20px; }
+.section-title { text-align: center; font-size: 1.6rem; margin-bottom: 30px; color: var(--green-dark); }
+
+.grid { display: grid; gap: 20px; }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+.card { background: var(--card-bg); border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px; }
+.card h3 { margin-top: 0; color: var(--green-dark); }
+
+.badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+.badge-pending { background: #fff3cd; color: #7a5c00; }
+.badge-accepted { background: #d4edda; color: #14532d; }
+.badge-declined { background: #f8d7da; color: #7a1f24; }
+
+/* Forms */
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.9rem; }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid #ccc; font-size: 0.95rem; font-family: inherit;
+}
+.form-checkbox-group { display: flex; flex-wrap: wrap; gap: 10px; }
+.form-checkbox-group label { display: flex; align-items: center; gap: 6px; font-weight: 400; background: var(--green-light); padding: 6px 12px; border-radius: 20px; }
+.form-checkbox-group input { width: auto; }
+
+.alert { padding: 12px 16px; border-radius: 8px; margin-bottom: 16px; }
+.alert-success { background: #d4edda; color: #14532d; }
+.alert-error { background: #f8d7da; color: #7a1f24; }
+.alert-info { background: var(--green-light); color: var(--green-dark); }
+
+/* Footer */
+footer { background: var(--green-dark); color: #eee; padding: 30px 20px; text-align: center; margin-top: 60px; }
+footer a { color: #fff; }
+
+/* WhatsApp floating button */
+.whatsapp-float {
+  position: fixed; bottom: 20px; right: 20px; z-index: 100;
+  background: #25D366; color: #fff; width: 58px; height: 58px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  font-size: 1.6rem;
+}
+[dir="rtl"] .whatsapp-float { right: auto; left: 20px; }
+
+/* Dashboard layout */
+.dashboard-layout { display: flex; gap: 24px; align-items: flex-start; padding: 24px 20px; max-width: 1200px; margin: 0 auto; }
+.dashboard-sidebar { width: 220px; flex-shrink: 0; background: var(--card-bg); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px; position: sticky; top: 80px; }
+.dashboard-sidebar button { display: block; width: 100%; text-align: left; padding: 10px 12px; border: none; background: none; border-radius: 8px; cursor: pointer; margin-bottom: 4px; }
+[dir="rtl"] .dashboard-sidebar button { text-align: right; }
+.dashboard-sidebar button.active { background: var(--green-light); color: var(--green-dark); font-weight: 600; }
+.dashboard-content { flex: 1; min-width: 0; }
+
+table { width: 100%; border-collapse: collapse; background: var(--card-bg); border-radius: var(--radius); overflow: hidden; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+[dir="rtl"] th, [dir="rtl"] td { text-align: right; }
+th { background: var(--green-light); color: var(--green-dark); }
+
+.stat-card { text-align: center; }
+.stat-number { font-size: 2rem; font-weight: 700; color: var(--green-dark); }
+.stat-label { color: var(--text-muted); font-size: 0.9rem; }
+
+@media (max-width: 800px) {
+  .dashboard-layout { flex-direction: column; }
+  .dashboard-sidebar { width: 100%; position: static; display: flex; overflow-x: auto; gap: 6px; }
+  .dashboard-sidebar button { width: auto; white-space: nowrap; }
+}
