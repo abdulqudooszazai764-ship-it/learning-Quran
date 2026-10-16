@@ -33,7 +33,7 @@ async function main() {
     if (existing.rows.length > 0) {
       console.log(`Admin account with email ${email} already exists. Skipping.`);
     } else {
-      const hash = await bcrypt.hash(password, 10);
+      const hash = await bcrypt.hash(password, 12);
       await db.query(
         `INSERT INTO users (role, email, password_hash) VALUES ('admin', $1, $2)`,
         [email, hash]

@@ -1,15 +1,25 @@
 # Quran Learning & Islamic Studies Academy – Website
 
-A simple full-stack website for an online Quran academy.
-**Frontend:** React (Vite) · **Backend:** Node.js + Express · **Database:** PostgreSQL
+**Version 1.1.0 · Updated September 2026**
+
+A premium full-stack website for an online Quran academy.
+**Frontend:** React 19 (Vite 8) · **Backend:** Node.js + Express 4 · **Database:** PostgreSQL
 **Languages:** English, العربية, دری (Dari), پښتو (Pashto) – RTL is switched automatically.
 **No payments:** there is no price, fee, invoice or payment feature anywhere in the code or database.
+
+### September 2026 Improvements
+- All packages updated to latest stable versions
+- Premium professional UI/UX redesign (modern design system, Inter + Noto Naskh Arabic fonts, refined green/gold palette, glass navbar, hover effects, mobile hamburger menu)
+- DRY & performance: React.lazy + Suspense code-splitting for all pages, tighter payload limits
+- Security hardened: bcrypt cost factor 12, stricter login + general rate limits, improved Helmet + CORS, trust-proxy, safer error handling
+- Better accessibility (focus states, ARIA on mobile menu) and responsive experience
 
 ## What is included
 - Public pages: Home, About, Teacher Profile, Courses, Admission (with status checker), Contact, Login, Privacy Policy
 - Family dashboard: family & students, courses, class schedule, teacher info, WhatsApp class link, private questions & answers
 - Teacher/Admin dashboard: totals, admission requests (accept/decline + message + create family login), families & students, courses (add/edit/hide/remove), class schedule with time zones, attendance (Present/Absent/Excused), questions & answers, teacher profile, testimonials, FAQs, WhatsApp links
-- Security: bcrypt password hashing, JWT sessions, role-based access, server-side authorization, helmet, login rate limiting, secrets in environment variables
+- Security: bcrypt password hashing (cost 12), JWT sessions, role-based access, server-side authorization, Helmet, multi-layer rate limiting, secrets in environment variables
+
 
 ## Folder structure
 ```

@@ -1,7 +1,7 @@
 {
   "name": "quran-academy-backend",
-  "version": "1.0.0",
-  "description": "Backend API for the Online Quran Learning and Islamic Studies Academy",
+  "version": "1.1.0",
+  "description": "Backend API for the Online Quran Learning and Islamic Studies Academy – Updated September 2026",
   "main": "server.js",
   "type": "commonjs",
   "scripts": {
@@ -10,18 +10,21 @@
     "setup-db": "node db/setup.js"
   },
   "dependencies": {
-    "express": "^4.19.2",
-    "pg": "^8.11.5",
-    "bcryptjs": "^2.4.3",
-    "jsonwebtoken": "^9.0.2",
+    "express": "^4.22.3",
+    "pg": "^8.23.0",
+    "bcryptjs": "^3.0.3",
+    "jsonwebtoken": "^9.0.3",
     "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express-validator": "^7.1.0",
-    "helmet": "^7.1.0",
-    "morgan": "^1.10.0",
-    "express-rate-limit": "^7.2.0"
+    "dotenv": "^16.6.1",
+    "express-validator": "^7.3.2",
+    "helmet": "^8.3.0",
+    "morgan": "^1.12.1",
+    "express-rate-limit": "^8.7.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.14"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

@@ -71,7 +71,7 @@ async function changePassword(req, res) {
     const match = await bcrypt.compare(currentPassword, user.password_hash);
     if (!match) return res.status(401).json({ error: 'Current password is incorrect.' });
 
-    const hash = await bcrypt.hash(newPassword, 10);
+    const hash = await bcrypt.hash(newPassword, 12);
     await db.query('UPDATE users SET password_hash = $1 WHERE id = $2', [hash, user.id]);
     return res.json({ message: 'Password updated successfully.' });
   } catch (err) {

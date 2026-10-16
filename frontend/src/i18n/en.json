@@ -1,5 +1,17 @@
+
 {
-  "nav": { "home": "Home", "about": "About", "teacher": "Teacher", "courses": "Courses", "admission": "Admission", "contact": "Contact", "login": "Login", "dashboard": "Dashboard", "logout": "Logout", "privacy": "Privacy Policy" },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "teacher": "Teacher",
+    "courses": "Courses",
+    "admission": "Admission",
+    "contact": "Contact",
+    "login": "Login",
+    "dashboard": "Dashboard",
+    "logout": "Logout",
+    "privacy": "Privacy Policy"
+  },
   "home": {
     "hero_title": "Learn the Quran with Love, Anywhere in the World",
     "hero_subtitle": "Live one-on-one and family group lessons in Quran, Tajweed, Hifz and Islamic Studies, taught over WhatsApp audio classes.",
@@ -29,9 +41,14 @@
   },
   "courses": {
     "title": "Our Courses",
-    "nazira": "Quran Nazira", "hifz": "Hifz (Memorization)", "tajweed": "Tajweed",
-    "hadith": "Hadith", "tafsir": "Tafsir", "islamic_studies": "Islamic Studies",
-    "fiqh": "Fiqh", "aqeedah": "Aqeedah",
+    "nazira": "Quran Nazira",
+    "hifz": "Hifz (Memorization)",
+    "tajweed": "Tajweed",
+    "hadith": "Hadith",
+    "tafsir": "Tafsir",
+    "islamic_studies": "Islamic Studies",
+    "fiqh": "Fiqh",
+    "aqeedah": "Aqeedah",
     "apply_for_this_course": "Apply for this course"
   },
   "admission": {
@@ -113,8 +130,14 @@
   },
   "common": {
     "loading": "Loading...",
-    "save": "Save", "cancel": "Cancel", "edit": "Edit", "delete": "Delete", "add": "Add",
-    "close": "Close", "back": "Back", "required": "This field is required.",
-    "no_price_notice": "This academy does not charge or collect any fees through this website. Please contact us directly for information about the program."
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "add": "Add",
+    "close": "Close",
+    "back": "Back",
+    "required": "This field is required.",
+    "no_price_notice": "Haseen Quran and Islamic Studies Academy is committed to providing quality online Quran education and authentic Islamic knowledge. Our aim is to help students improve their Quran recitation, Tajweed, memorization, and understanding of Islamic teachings through structured lessons and personalized guidance. For information about our courses and enrollment, please contact us directly."
   }
 }

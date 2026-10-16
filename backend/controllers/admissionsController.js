@@ -104,7 +104,7 @@ async function decideAdmission(req, res) {
         return res.status(400).json({ error: 'That login email/username is already in use. Please choose another.' });
       }
 
-      const hash = await bcrypt.hash(loginPassword, 10);
+      const hash = await bcrypt.hash(loginPassword, 12);
       const userRes = await client.query(
         `INSERT INTO users (role, email, password_hash) VALUES ('family', $1, $2) RETURNING id`,
         [loginEmail, hash]
