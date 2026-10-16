@@ -1,26 +1,24 @@
 {
   "name": "quran-academy-frontend",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "type": "module",
+  "description": "Frontend for Online Quran Learning Academy – Premium UI Updated September 2026",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "^1.7.2",
-    "i18next": "^23.11.5",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-i18next": "^14.1.2",
+    "axios": "^1.20.0",
+    "i18next": "^26.4.2",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-i18next": "^17.0.15",
     "react-router-dom": "^7.18.4"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.3.1",
-    "vite": "^8.3.1"
-  },
-  "allowScripts": {
-    "esbuild@0.21.5": true
+    "@vitejs/plugin-react": "^6.1.1",
+    "vite": "^8.3.4"
   }
 }
