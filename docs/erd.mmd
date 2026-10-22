@@ -1,0 +1,55 @@
+erDiagram
+  USER ||--o| FAMILY : owns
+  FAMILY ||--o{ STUDENT : has
+  STUDENT ||--o{ ENROLLMENT : joins
+  COURSE ||--o{ ENROLLMENT : includes
+  STUDENT ||--o{ CLASS_SESSION : attends
+  COURSE ||--o{ CLASS_SESSION : teaches
+  FAMILY ||--o{ QUESTION : submits
+  STUDENT o|--o{ QUESTION : relates_to
+  FAMILY ||--o{ ADMISSION : may_be_created_from
+  USER { bigint id PK
+    string username UK
+    string password_hash
+    boolean is_staff
+  }
+  FAMILY { bigint id PK
+    bigint user_id FK
+    string family_name
+    string guardian_name
+    string contact_number
+  }
+  STUDENT { bigint id PK
+    bigint family_id FK
+    string full_name
+    boolean is_active
+  }
+  COURSE { bigint id PK
+    string name_en
+    string name_ps
+    string name_fa
+    string name_ar
+    boolean is_active
+  }
+  ENROLLMENT { bigint id PK
+    bigint student_id FK
+    bigint course_id FK
+    string status
+  }
+  ADMISSION { bigint id PK
+    string guardian_name
+    string contact_number
+    string status
+  }
+  CLASS_SESSION { bigint id PK
+    bigint student_id FK
+    bigint course_id FK
+    datetime class_datetime
+    string attendance
+  }
+  QUESTION { bigint id PK
+    bigint family_id FK
+    bigint student_id FK
+    text question
+    text answer
+  }
