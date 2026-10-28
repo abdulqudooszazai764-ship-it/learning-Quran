@@ -67,7 +67,7 @@ export default function AdmissionPage() {
           family_name: parsed.data.guardian_name,
         contact_number: raw.phone || parsed.data.email || "Not provided",
           country: "Not provided",
-          student_names: parsed.data.student_name,
+            student_names: parsed.data.student_names,
           course_interest: parsed.data.course_interest || "",
           message: [parsed.data.message || "", extra].filter(Boolean).join("\n\n"),
         }),
