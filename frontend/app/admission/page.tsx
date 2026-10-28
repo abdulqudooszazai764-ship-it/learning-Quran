@@ -4,7 +4,6 @@ import { useState, type FormEvent } from "react";
 import { Send, ClipboardList } from "lucide-react";
 import { admissionSchema } from "@/lib/validations";
 import { API_URL } from "@/lib/utils";
-import { useLanguage, LANGUAGES } from "@/context/LanguageContext";
 
 const COURSE_OPTIONS = [
   "Quran Recitation (Nazira)",
@@ -21,24 +20,22 @@ export default function AdmissionPage() {
   const [message, setMessage] = useState("");
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [busy, setBusy] = useState(false);
-  const { tr, lang } = useLanguage();
 
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const formEl = e.currentTarget;
     setStatus("idle");
     setMessage("");
     setFieldErrors({});
     setBusy(true);
 
-    const form = new FormData(e.currentTarget);
+    const form = new FormData(formEl);
     const raw = {
       guardian_name: String(form.get("guardian_name") || ""),
-      family_name: String(form.get("family_name") || ""),
       email: String(form.get("email") || ""),
-      contact_number: String(form.get("contact_number") || ""),
-      country: String(form.get("country") || ""),
-      preferred_language: String(form.get("preferred_language") || lang || "en"),
-      student_names: String(form.get("student_names") || ""),
+      phone: String(form.get("phone") || ""),
+      student_name: String(form.get("student_name") || ""),
+      student_age: String(form.get("student_age") || ""),
       course_interest: String(form.get("course_interest") || ""),
       message: String(form.get("message") || ""),
     };
@@ -55,20 +52,42 @@ export default function AdmissionPage() {
     }
 
     try {
+      const extra = [
+        parsed.data.email ? `Email: ${parsed.data.email}` : "",
+        parsed.data.student_age ? `Student age: ${parsed.data.student_age}` : "",
+      ]
+        .filter(Boolean)
+        .join("\n");
+
       const r = await fetch(`${API_URL}/admissions/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(parsed.data),
+        body: JSON.stringify({
+          guardian_name: parsed.data.guardian_name,
+          family_name: parsed.data.guardian_name,
+          contact_number: parsed.data.phone || parsed.data.email || "Not provided",
+          country: "Not provided",
+          student_names: parsed.data.student_name,
+          course_interest: parsed.data.course_interest || "",
+          message: [parsed.data.message || "", extra].filter(Boolean).join("\n\n"),
+        }),
       });
       const d = await r.json().catch(() => ({}));
       if (!r.ok) {
+        const firstFieldError = Object.entries(d || {}).find(([, v]) => Array.isArray(v));
         throw new Error(
-          d.detail || d.message || "Could not submit enquiry. Please try again."
+          d.detail ||
+            d.message ||
+            (firstFieldError
+              ? `${firstFieldError[0]}: ${(firstFieldError[1] as string[])[0]}`
+              : `Server error ${r.status} ${r.statusText}`)
         );
       }
       setStatus("success");
-      setMessage(tr("successAdmission"));
-      e.currentTarget.reset();
+      setMessage(
+        "Thank you. Your admission enquiry has been received. The academy will contact you soon."
+      );
+      formEl.reset();
     } catch (err) {
       setStatus("error");
       setMessage(
@@ -87,7 +106,7 @@ export default function AdmissionPage() {
             <ClipboardList size={14} />
             Enrollment enquiry
           </div>
-          <h1 className="page-title">{tr("beginJourney")}</h1>
+          <h1 className="page-title">Begin your learning journey</h1>
           <p className="muted" style={{ maxWidth: 520, margin: "0 auto" }}>
             Share a few details about your family and preferred course. We will
             respond with guidance on the next steps.
@@ -102,62 +121,47 @@ export default function AdmissionPage() {
         >
           <div className="field">
             <label htmlFor="guardian_name">Guardian full name</label>
-            <input id="guardian_name" name="guardian_name" placeholder="Parent / Guardian" required />
+            <input id="guardian_name" name="guardian_name" placeholder="Parent / Guardian" />
             {fieldErrors.guardian_name && (
               <p className="field-error">{fieldErrors.guardian_name}</p>
             )}
           </div>
 
-          <div className="field">
-            <label htmlFor="family_name">Family name (optional)</label>
-            <input id="family_name" name="family_name" placeholder="Family name" />
-          </div>
-
           <div className="grid grid-2" style={{ gap: "1rem" }}>
             <div className="field">
               <label htmlFor="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+              <input id="email" name="email" type="email" placeholder="you@example.com" />
               {fieldErrors.email && <p className="field-error">{fieldErrors.email}</p>}
             </div>
             <div className="field">
-              <label htmlFor="contact_number">Phone</label>
-              <input id="contact_number" name="contact_number" type="tel" placeholder="+93 …" required />
-              {fieldErrors.contact_number && (
-                <p className="field-error">{fieldErrors.contact_number}</p>
-              )}
+              <label htmlFor="phone">Phone (optional)</label>
+              <input id="phone" name="phone" type="tel" placeholder="+1 …" />
+              {fieldErrors.phone && <p className="field-error">{fieldErrors.phone}</p>}
             </div>
           </div>
 
           <div className="grid grid-2" style={{ gap: "1rem" }}>
             <div className="field">
-              <label htmlFor="student_names">Student full name(s)</label>
-              <input id="student_names" name="student_names" placeholder="Student name" required />
-              {fieldErrors.student_names && (
-                <p className="field-error">{fieldErrors.student_names}</p>
+              <label htmlFor="student_name">Student full name</label>
+              <input id="student_name" name="student_name" placeholder="Student name" />
+              {fieldErrors.student_name && (
+                <p className="field-error">{fieldErrors.student_name}</p>
               )}
             </div>
             <div className="field">
-              <label htmlFor="country">Country (optional)</label>
-              <input id="country" name="country" placeholder="Country" />
+              <label htmlFor="student_age">Student age (optional)</label>
+              <input id="student_age" name="student_age" type="number" min={3} max={80} placeholder="e.g. 10" />
+              {fieldErrors.student_age && (
+                <p className="field-error">{fieldErrors.student_age}</p>
+              )}
             </div>
-          </div>
-
-          <div className="field">
-            <label htmlFor="preferred_language">{tr("preferredLanguage")}</label>
-            <select id="preferred_language" name="preferred_language" defaultValue={lang}>
-              {LANGUAGES.map((l) => (
-                <option key={l.code} value={l.code}>
-                  {l.native} ({l.label})
-                </option>
-              ))}
-            </select>
           </div>
 
           <div className="field">
             <label htmlFor="course_interest">Course interest</label>
-            <select id="course_interest" name="course_interest" required defaultValue="">
+            <select id="course_interest" name="course_interest" defaultValue="">
               <option value="" disabled>
-                Select a course
+                Select a course…
               </option>
               {COURSE_OPTIONS.map((c) => (
                 <option key={c} value={c}>
@@ -171,9 +175,26 @@ export default function AdmissionPage() {
           </div>
 
           <div className="field">
-            <label htmlFor="message">Message (optional)</label>
-            <textarea id="message" name="message" rows={4} placeholder="Any notes for the academy…" />
+            <label htmlFor="message">Additional message (optional)</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Share any preferences about schedule, level, or goals…"
+            />
+            {fieldErrors.message && (
+              <p className="field-error">{fieldErrors.message}</p>
+            )}
           </div>
+
+          <button
+            type="submit"
+            className="btn btn-primary"
+            style={{ width: "100%" }}
+            disabled={busy}
+          >
+            <Send size={18} />
+            {busy ? "Sending…" : "Submit enquiry"}
+          </button>
 
           {status === "success" && (
             <p className="notice success" role="status">
@@ -185,11 +206,6 @@ export default function AdmissionPage() {
               {message}
             </p>
           )}
-
-          <button type="submit" className="btn btn-primary" disabled={busy} style={{ width: "100%" }}>
-            <Send size={16} />
-            {busy ? "Sending…" : tr("submitEnquiry")}
-          </button>
         </form>
       </div>
     </section>
