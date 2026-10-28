@@ -65,7 +65,7 @@ export default function AdmissionPage() {
         body: JSON.stringify({
           guardian_name: parsed.data.guardian_name,
           family_name: parsed.data.guardian_name,
-          contact_number: parsed.data.phone || parsed.data.email || "Not provided",
+        contact_number: raw.phone || parsed.data.email || "Not provided",
           country: "Not provided",
           student_names: parsed.data.student_name,
           course_interest: parsed.data.course_interest || "",
