@@ -52,10 +52,12 @@ export default function AdmissionPage() {
     }
 
     try {
-      const extra = [
-        parsed.data.email ? `Email: ${parsed.data.email}` : "",
-        parsed.data.student_age ? `Student age: ${parsed.data.student_age}` : "",
-      ]
+     const extra = [
+  parsed.data.email ? `Email: ${parsed.data.email}` : "",
+  raw.student_age ? `Student age: ${raw.student_age}` : "",
+]
+  .filter(Boolean)
+  .join("\n");
         .filter(Boolean)
         .join("\n");
 
